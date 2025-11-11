@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "sensorsimulator.h"
+#include "chartwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,8 +19,18 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void onDataUpdated(const QVector<Sensor> &sensors);
+    void onStartClicked();
+    void onStopClicked();
+
 private:
     Ui::MainWindow *ui;
+    SensorSimulator *m_simulator;
+    ChartWidget *m_chartWidget;
+
+    void setupConnections();
+    void setupTable();
 };
 
 #endif // MAINWINDOW_H

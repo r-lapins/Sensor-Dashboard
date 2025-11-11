@@ -4,8 +4,8 @@ project(SensorDashboard LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
-find_package(Qt6 REQUIRED COMPONENTS Core)
+# find_package(Qt6 6.5 REQUIRED COMPONENTS Widgets Charts)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Charts)
 
 qt_standard_project_setup()
 
@@ -15,14 +15,13 @@ qt_add_executable(SensorDashboard
     mainwindow.h mainwindow.cpp mainwindow.ui
     sensor.h sensor.cpp
     sensorsimulator.h sensorsimulator.cpp
+    chartwidget.h chartwidget.cpp
 )
 
-target_link_libraries(SensorDashboard
-    PRIVATE
-        Qt::Core
-        Qt::Widgets
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Widgets
+    Qt6::Charts
 )
-target_link_libraries(SensorDashboard PRIVATE Qt6::Core)
 
 # include(GNUInstallDirs)
 
