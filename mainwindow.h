@@ -23,6 +23,7 @@ private slots:
     void onDataUpdated(const QVector<Sensor> &sensors);
     void onStartClicked();
     void onStopClicked();
+    void onSaveClicked();
 
 private:
     Ui::MainWindow *ui;
