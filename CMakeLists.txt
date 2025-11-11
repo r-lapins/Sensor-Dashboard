@@ -5,15 +5,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup()
 
 qt_add_executable(SensorDashboard
     # WIN32 MACOSX_BUNDLE
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    mainwindow.h mainwindow.cpp mainwindow.ui
+    sensor.h sensor.cpp
+    sensorsimulator.h sensorsimulator.cpp
 )
 
 target_link_libraries(SensorDashboard
@@ -21,6 +22,7 @@ target_link_libraries(SensorDashboard
         Qt::Core
         Qt::Widgets
 )
+target_link_libraries(SensorDashboard PRIVATE Qt6::Core)
 
 # include(GNUInstallDirs)
 
