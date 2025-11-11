@@ -72,3 +72,13 @@ make
 1. Open CMakeLists.txt in Qt Creator
 2. Select Qt 6 kit
 3. Build → Run
+
+---
+
+## Example CSV Export
+```
+Sensor,Value,Unit,Time
+Temperature,21.45,°C,12:45:02
+Pressure,1016.8,hPa,12:45:02
+Humidity,49.3,%,12:45:02
+```
